@@ -38,7 +38,7 @@ class Matrix(private val rows:Int, private val columns:Int = rows) {
 
     operator fun plus(rightMatrix:Matrix): Matrix {
         if (!isSameDimensions(rightMatrix))
-            throw IllegalArgumentException("Matrices mast have the same dimensions.")
+            throw IllegalArgumentException("Matrices must have the same dimensions.")
         val newMatrix = Matrix(getRowsNumber(), getColumnsNumber())
         for(row in 0 until getRowsNumber()) {
             for (column in 0 until getColumnsNumber()) {

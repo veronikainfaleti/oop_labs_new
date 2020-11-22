@@ -101,7 +101,7 @@ internal class MatrixTest {
         try {
             m1+m2
         } catch (e: IllegalArgumentException) {
-            assertEquals("Matrices mast have the same dimensions.", e.message)
+            assertEquals("Matrices must have the same dimensions.", e.message)
         }
     }
 
@@ -112,7 +112,7 @@ internal class MatrixTest {
         try {
             m1-m2
         } catch (e: IllegalArgumentException) {
-            assertEquals("Matrices mast have the same dimensions.", e.message)
+            assertEquals("Matrices must have the same dimensions.", e.message)
         }
     }
 
