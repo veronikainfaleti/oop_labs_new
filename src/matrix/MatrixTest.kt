@@ -14,9 +14,6 @@ internal class MatrixTest {
 
         assertEquals(matrixactual, matrixplus)
         assertEquals(matrixactual.getDeterminant(), matrixplus.getDeterminant())
-        assertEquals(matrixactual.getDimensions(), matrixplus.getDimensions())
-        assertEquals("${matrixplus.component1()} * ${matrixplus.component2()}", matrixplus.getDimensions())
-        assertEquals("${matrixactual.component1()} * ${matrixactual.component2()}", matrixactual.getDimensions())
     }
 
     @Test
@@ -26,9 +23,6 @@ internal class MatrixTest {
 
         assertEquals(matrixactual, matrixminus)
         assertEquals(matrixactual.getDeterminant(), matrixminus.getDeterminant())
-        assertEquals(matrixactual.getDimensions(), matrixminus.getDimensions())
-        assertEquals("${matrixminus.component1()} * ${matrixminus.component2()}", matrixminus.getDimensions())
-        assertEquals("${matrixactual.component1()} * ${matrixactual.component2()}", matrixactual.getDimensions())
     }
 
     @Test
@@ -37,7 +31,6 @@ internal class MatrixTest {
         val matrixactual = Matrix(Array(3){Array(3){6.0}})
 
         assertEquals(matrixactual, matrixtimes)
-        assertEquals(matrixactual.getDimensions(), matrixtimes.getDimensions())
     }
 
     @Test
@@ -48,7 +41,6 @@ internal class MatrixTest {
         val matrixactual = Matrix(Array(1){arrayOf(1.0, 2.0, 3.0, 4.0)}) * 6.0
 
         assertEquals(matrixactual, matrixtimes)
-        assertEquals(matrixactual.getDimensions(), matrixtimes.getDimensions())
     }
 
     @Test
