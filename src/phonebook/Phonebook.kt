@@ -41,15 +41,13 @@ class Phonebook(private val contacts: MutableSet<Contact>) {
     }
 
     //find contact that contains str
-    fun find(str: String): String {
+    fun find(str: String): List<Contact> {
         val listOfContacts = mutableListOf<Contact>()
         for (contact in contacts) {
             if(contact.component1().contains(str) || contact.component2().contains(str) || contact.getNumbers().any { it.number.contains(str) })
                 listOfContacts.add(contact)
         }
-        return if(listOfContacts.isNotEmpty())
-            listOfContacts.toList().toString()
-        else "No contact contains '$str'."
+        return listOfContacts.toList()
     }
 
     override fun equals(other: Any?): Boolean {

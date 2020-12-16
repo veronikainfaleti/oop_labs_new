@@ -1,7 +1,8 @@
 package phonebook
 
-import java.lang.IllegalArgumentException
 import kotlin.test.assertEquals
+
+
 fun main() {
     //test contact
     println(Contact("1","23", mutableSetOf(Number(NumberType.MOBILE, "123"), Number(NumberType.HOME, "+123"))))
@@ -14,7 +15,7 @@ fun main() {
 
     //add contacts to phonebook
     val phonebook = Phonebook(mutableSetOf(addPhoneNumber, addPhoneNumber2))
-    phonebook.removeContact(Contact("0", "0", mutableSetOf())).also(::println) //false
+    phonebook.removeContact(Contact("0", "0", mutableSetOf()))//.also(::println) //false
 
     //working
     try {
@@ -78,13 +79,19 @@ fun main() {
     * [MOBILE: 123, MOBILE: 1234, MOBILE: 88005553535]]
     * */
     val stringToContain = "23"
-    println("\n\ncontains '$stringToContain': " + phonebook.find(stringToContain))
+    val contacts = phonebook.find(stringToContain)
+    if(phonebook.find(stringToContain).isNotEmpty())
+        println("\n\ncontains '$stringToContain': $contacts")
+    else println("No contact contains $stringToContain\n\n")
 
     /*result:
-    * contains '235': No contact contains '235'.
+    * No contact contains '235'
     * */
     val stringToNotContain = "235"
-    println("\n\ncontains '$stringToNotContain': " + phonebook.find(stringToNotContain))
+    val contacts2 = phonebook.find(stringToNotContain)
+    if(phonebook.find(stringToNotContain).isNotEmpty())
+        println("\n\ncontains '$stringToNotContain': $contacts2")
+    else println("\nNo contact contains '$stringToNotContain'\n\n")
 
 
     //get contact test
