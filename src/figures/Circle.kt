@@ -2,10 +2,10 @@ package figures
 
 import kotlin.math.PI
 
-class Circle(private val r: Double,) : Shape {
+class Circle(private val r: Double) : Shape {
 
     init {
-        require(r>0) { "The circle radius must be positive." }
+        require(r > 0) { "The circle radius must be positive." }
     }
 
     override fun getCalcArea() = PI * r * r
@@ -27,9 +27,7 @@ class Circle(private val r: Double,) : Shape {
     }
 
     override fun toString(): String {
-        return "Figures.Circle: Radius = $r\n" +
-                "Area = ${getCalcArea()}\n" +
-                "Perimeter = ${getCalcPerimeter()}\n"
+        return "Circle($r)"
     }
 
 }

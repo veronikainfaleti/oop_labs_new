@@ -3,28 +3,22 @@ package figures
 import kotlin.math.sqrt
 
 class Triangle(
-        private val a: Double,
-        private val b: Double = a,
-        private val c: Double = a,
-): Shape {
+        private val sideA: Double,
+        private val sideB: Double = sideA,
+        private val sideC: Double = sideA,
+) : Shape {
 
     init {
-        require((a+b>c) && (a+c>b) && (b+c>a))
-        { "The triangle with sides $a, $b, $c does not exist." }
+        require((sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA))
+        { "The triangle with sides $sideA, $sideB, $sideC does not exist." }
     }
 
     override fun getCalcArea(): Double {
-            val p = getCalcPerimeter() / 2
-        return sqrt(p * (p - a) * (p - b) * (p - c))
+        val p = getCalcPerimeter() / 2
+        return sqrt(p * (p - sideA) * (p - sideB) * (p - sideC))
     }
 
-    override fun getCalcPerimeter(): Double = a+b+c
-
-    override fun toString(): String {
-        return "Figures.Triangle: a=${a}, b=${b}, c=${c}\n" +
-                "Area = ${getCalcArea()}\n" +
-                "Perimeter = ${getCalcPerimeter()}\n"
-    }
+    override fun getCalcPerimeter(): Double = sideA + sideB + sideC
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -32,18 +26,22 @@ class Triangle(
 
         other as Triangle
 
-        if (a != other.a) return false
-        if (b != other.b) return false
-        if (c != other.c) return false
+        if (sideA != other.sideA) return false
+        if (sideB != other.sideB) return false
+        if (sideC != other.sideC) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = a.hashCode()
-        result = 31 * result + b.hashCode()
-        result = 31 * result + c.hashCode()
+        var result = sideA.hashCode()
+        result = 31 * result + sideB.hashCode()
+        result = 31 * result + sideC.hashCode()
         return result
+    }
+
+    override fun toString(): String {
+        return "Triangle($sideA,$sideB,$sideC)"
     }
 
 }
