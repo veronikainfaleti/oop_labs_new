@@ -93,7 +93,8 @@ fun main() {
     //tests for ShapeAccumulator
 
     println("\n\n\n----------tests for ShapeAccumulator\n")
-    val shapeAccumulatorTriangle: ShapeAccumulator<Triangle> = ShapeAccumulator(triangle)
+    val shapeAccumulatorTriangle: ShapeAccumulator<Triangle> = ShapeAccumulator()
+    shapeAccumulatorTriangle.add(triangle)
     val maxAreaShape = shapeAccumulatorTriangle.getMaxAreaShape()
     val maxPerimeterShape = shapeAccumulatorTriangle.getMaxPerimeterShape()
     val minAreaShape = shapeAccumulatorTriangle.getMinAreaShape()
@@ -158,7 +159,8 @@ fun main() {
     )
 
 
-    val shapeAccumulator: ShapeAccumulator<Shape> = ShapeAccumulator(shapes)
+    val shapeAccumulator: ShapeAccumulator<Shape> = ShapeAccumulator()
+    shapeAccumulator.addAll(shapes)
     val maxAreaShape3 = shapeAccumulator.getMaxAreaShape()
     val maxPerimeterShape3 = shapeAccumulator.getMaxPerimeterShape()
     val minAreaShape3 = shapeAccumulator.getMinAreaShape()

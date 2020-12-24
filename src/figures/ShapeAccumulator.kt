@@ -1,16 +1,7 @@
 package figures
 
-class ShapeAccumulator<T: Shape>(shapes: Collection<T>) {
+class ShapeAccumulator<T: Shape> {
     private val shapes = ArrayList<T>()
-
-    //constructors
-    init {
-        require(!shapes.isEmpty()) {"Collection is empty."}
-
-        this.shapes.addAll(shapes.toList())
-    }
-
-    constructor(shape: T) : this(arrayListOf(shape))
 
     fun add(shape: T) {
         this.shapes.add(shape)
